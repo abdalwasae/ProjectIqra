@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  />
+  <!-- Bootstrap core CSS -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Material Design Bootstrap -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+    rel="stylesheet"
+  />
+  <!-- JQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+  ></script>
+  <!-- Bootstrap tooltips -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+  ></script>
+  <!-- Bootstrap core JavaScript -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+  ></script>
+  <!-- MDB core JavaScript -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+  ></script>
+  </head>
+  <script src="bookdata.js"></script>
+  <body>
+      <style>
+      #search_bar{
+        width: 30vw;
+        border: none; 
+        outline: none; 
+        height: 35px;
+        margin-top: auto;
+        background-color: black;
+        border-top-left-radius : 50px;
+        border-bottom-left-radius : 50px;
+      }
+      #search_btn_container{
+          margin-left: 55px;
+      }
+      .card_w{
+        width: 25%; 
+        height: 20%; 
+        display: flex;
+      }
+      #search_btn{
+        margin-left: 0;
+        height: 35px;
+        margin: auto;
+        border-top-right-radius : 50px;
+        border-bottom-right-radius : 50px;
+        background: #febd69;
+        /* background: linear-gradient(90deg, rgb(1, 0, 22) 0%, rgb(24, 55, 122) 61%, rgb(61, 124, 226) 100%); */
+      }
+      .dropdown:hover .dropdown-menu {
+          display: block;
+          margin-top: 0; 
+      }
+      ::placeholder {
+        color: white;
+        font-weight: bold;
+      }
+      #header_text{
+          font-style:normal;
+          color: blue;
+      }
+      .lie{
+          font-style: italic;
+          margin-bottom: 30px;
+      }
+      .Book-row{
+          padding-bottom: 30px;
+      }
+       
+      .reading{
+          font-weight: bold;
+          text-align: left;
+      }
+      .Pricing{
+         color: brown;
+         font-weight: bold;
+      }
+      .description{
+          font-style: normal;
+      }
+      .author{
+          font-style: italic;
+      }
+      .rating{
+          font-weight: bold;
+      }
+     .imag{
+        float: left;
+        width: 20%;
+        height: 20%;
+        padding-right: 20px;
+     }
+     #main{
+        margin-left: 300px;
+        margin-right: 300px;
+     }
+     .container{
+         display: flex;
+    }
+     @media only screen and (max-width: 600px) {
+        #search_bar{
+          width: 60vw;
+        }
+        #search_btn_container{
+          width: 90vw;
+          margin-left: 0;
+        }
+        .card{
+          margin: 10px;
+        }
+        .description{
+          overflow: hidden;
+        }
+        .card_w{
+          width: auto;
+          height: 20%; 
+          display: flex;
+        }
+        #main_content{
+          display: flex;
+          flex-direction: column;
+        }
+        #main{
+            margin-left: 0px;
+            margin-right: 0;
+        }
+        .container{
+            flex-direction: column ;
+        }
+      }
+      @media only screen and (max-width: 1400px) {
+        #main{
+            /* margin-left: 0px; */
+            margin-right: 0;
+        }
+        .description{
+          overflow-x: hidden;
+        }
+      }
+    </style>
+     <nav style='padding: 1% ; background-color:#131921 ;' class="navbar navbar-expand-md navbar-dark">
+      <a class="navbar-brand" href="images/iqralogo.png"></a>
+      <img style="height: 45px; width: 90px;" src="images/iqralogow.png" alt="">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div>
+        <form class="navbar-form" role="search">
+          <div class="input-group" id='search_btn_container'>
+            <input style="background-color: #ffffff;" list="browsers" id='search_bar' type="text" class="form-control" name="myBrowser" placeholder="Search...">
+            <datalist id="browsers">
+              <option value="Educational books">
+              <option value="Fantasy books">
+              <option value="Comic books">
+              <option value="Science Fiction Books">
+            </datalist>
+              <span class="input-group-btn">
+                <button type="button" id='search_btn' onclick='next()' class="btn btn-sm"><i style="margin-left: -10px;" class="fas fa-search fa-2x"></i></button>
+                  <span class="glyphicon glyphicon-search"></span>
+                  </button>
+              </span>
+          </div>
+        </form>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="">Login</a>
+          </li>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="">Your Orders</a>
+            </li>
+          <li class="nav-item">
+            <li class="nav-item dropdown mr-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                More
+              </a>
+              <ul class="dropdown-menu" style='position: relative; left:-50px' aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" style='padding: 2px 10px 2px 10px;' href="#">My Account</a></li>
+                <li><a class="dropdown-item" style='padding: 2px 10px 2px 10px;' href="#">My Orders</a></li>
+                <li><a class="dropdown-item" style='padding: 2px 10px 2px 10px;' href="#">Preferences</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" style='padding: 2px 10px 2px 10px;' href="#">Logout</a></li>
+              </ul>
+            </li>
+            <a class="nav-link" href=""
+              ><i class="fas fa-shopping-cart"></i> Cart</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="main"></div>
+    <script>
+      console.log(Object.keys(data[2]).length);
+      for (let x = 0; x < Object.keys(data[2]).length; x++) {
+        document.getElementById(
+          "main"
+        ).innerHTML += `<div id="header_text" class="text-left p-2">
+                            </div>
+                            <div class="container" style='display: flex'>
+                                <div >
+                                    <img class="imag" style='width:250px; height: 300px' src="${data[2][x]["img"]}" alt="">
+                                </div>
+                                <div style='display:flex; flex-direction:column' class="Book-row">
+                                    <h3 class="reading">${data[2][x]["title"]}</h3>
+                                    <h4 class="author">${data[2][x]["author"]}</h4>
+                                    <h6 class="rating">${data[2][x]["rating"]}</h6>
+                                    <h5 class="Pricing">${data[2][x]["price"]}</h5>
+                                    <p class="description">${data[2][x]["description"]}</p>
+                                    <div><a href="https://www.amazon.in/Books/b?node=976389031" style='width:150px; background-color:#ed972b' class="btn"><b>Buy now</b></a></div>
+                                </div>                        
+                            </div>
+                            <hr>`;
+      }
+    </script>
+    <footer style="margin-top: 20px;background-color: #131921;" class="text-white text-center text-lg-start">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Copyright Disclaimer</h5>
+    
+            <p>
+              This Website was Created as a Part of College Project/Assignment.
+              The goal was to make a Website which look Similar to Amazon.com
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-0">Developers:</h5>
+    
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-white">18-555 Abdul Shahed</a>
+              </li>
+              <li>
+                <a href="https://abdalwasae.github.io/sitewithcss/" class="text-white">18-556 Abdul Wasay</a>
+              </li>
+              <li>
+                <a href="https://instagram.com/_baseer_?igshid=1euuvkxlkqom8" class="text-white">18-548 Abdul Baseer</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #232f3e">
+        © 2020 Copyright:
+        <a class="text-white" href="#">Amazon.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </body>
+</html>
